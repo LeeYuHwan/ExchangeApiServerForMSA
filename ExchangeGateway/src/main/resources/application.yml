@@ -1,0 +1,53 @@
+server:
+  port: 8080
+
+jwt:
+  expire-minute: 60
+  secret-key: doha123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://admin:1234@localhost:8761/eureka
+
+#actuator 이용 라우팅 - 실 서비스시 외부환경에 열려 있기 때문에 스프링 시큐리티 같은 것을 사용해 인가된 사용자만 출입 할 수 있게 해야한다.
+management:
+  endpoint:
+    gateway:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: gateway
+
+#  존재하는 라우팅 확인
+#GET : /actuator/gateway/routes
+
+#  라우터 추가
+#POST : /actuator/gateway/routes/{id}
+#  POST Body에 JSON 타입으로 데이터를 추가해야 한다.
+
+#  라우팅 JSON Body ex)
+#  {
+#    "predicate": "Paths: [/ms3/**]",
+#    "filters": [],
+#    "uri": "http://localhost:8083",
+#    "order": 0
+#  }
+
+#  추가 후 refresh
+#POST : /actuator/gateway/refresh
+
+#  라우터 제거
+#DELETE : /actuator/gateway/routes/{id}
+
+#  특정 라우터 확인
+#GET : /actuator/gateway/routes/{id}
+
+#  글로벌 필터 목록
+#GET : /actuator/gateway/globalfilters
+
+#  특정 라우터 필터 목록
+#GET : /actuator/gateway/routefilters/{id}

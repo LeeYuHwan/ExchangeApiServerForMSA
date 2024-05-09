@@ -1,0 +1,15 @@
+server:
+  port: 9000
+
+#config server
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: git@github.com:LeeYuHwan/SpringCloudConfig.git
+          ignoreLocalSshSettings: true
+          private-key: |
+            -----BEGIN RSA PRIVATE KEY-----
+            -----------------------------------------------------------
+            -----END RSA PRIVATE KEY-----
