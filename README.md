@@ -3,7 +3,7 @@
 
 #### 시스템 구성도
 
-![image](https://github.com/LeeYuHwan/ExchangeApiServerForMSA/assets/66478929/bb581073-2973-4054-ba8a-6f1ea8c3c25a)
+![image](https://github.com/LeeYuHwan/ExchangeApiServerForMSA/assets/66478929/876420b9-e8fa-4d12-a018-0125bf3eb5f0)
 
 
 --------------------
